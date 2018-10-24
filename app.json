@@ -1,4 +1,12 @@
 {
   "name": "randohelper",
-  "displayName": "randohelper"
+  "displayName": "randohelper",
+  "expo": {
+    "name": "RandoHelper",
+    "orientation": "portrait",
+    "sdkVersion": "30.0.0",
+    "splash": {
+        "resizeMode": "contain"
+      }
+  }
 }
