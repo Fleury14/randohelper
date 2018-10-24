@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import { Footer } from '../common';
+
+const styles = StyleSheet.create({
+  bodyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+})
 
 class Main extends Component {
   render() {
-    console.log('main rendering... i think?');
+    console.log('props', this.props);
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'red'}}>
-        <Text>
-          Main screen
-        </Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-between' }}>
+        <View style={styles.bodyContainer}>
+          <Text>
+            Main screen
+          </Text>
+        </View>
+        <Footer />
       </View>
     )
   };

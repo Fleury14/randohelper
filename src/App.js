@@ -14,7 +14,7 @@ class App extends Component {
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
     return (
       <Provider store={store}>
-        <View style={{ height: '100%', backgroundColor: 'yellow' }}>
+        <View style={{ height: '100%', flex: 1, backgroundColor: 'yellow' }}>
           <RootStack />
         </View>
       </Provider>
