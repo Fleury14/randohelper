@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 const styles = {
   footerContainer: {
@@ -19,24 +19,40 @@ const Footer = (props) => {
   return (
     <View style={styles.footerContainer}>
       <View>
-        <Text style={styles.footerText}>
-          Home
-        </Text>
+        <TouchableOpacity
+          onPress={() => props.navigate('Home')}
+        >
+          <Text style={styles.footerText}>
+            Home
+          </Text>
+        </TouchableOpacity>
       </View>
       <View>
-        <Text style={styles.footerText}>
-          Player Stats
-        </Text>
+        <TouchableOpacity
+          onPress={() => props.navigate('PlayerStats')}
+        >
+          <Text style={styles.footerText}>
+            Player Stats
+          </Text>
+        </TouchableOpacity>
       </View>
       <View>
-        <Text style={styles.footerText}>
-          Current Races
-        </Text>
+        <TouchableOpacity
+          onPress={() => props.navigate('CurrentRaces')}
+        >
+          <Text style={styles.footerText}>
+            Current Races
+          </Text>
+        </TouchableOpacity>
       </View>
       <View>
-        <Text style={styles.footerText}>
-          Settings
-        </Text>
+        <TouchableOpacity
+          onPress={() => props.navigate('Settings')}
+        >
+          <Text style={styles.footerText}>
+            Settings
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
