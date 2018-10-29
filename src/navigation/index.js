@@ -1,11 +1,22 @@
 import { createStackNavigator } from 'react-navigation';
-import { Main } from '../components';
+import { Main, Settings, CurrentRaces, PlayerStats } from '../components';
 
-const RootStack = createStackNavigator({
-  Home: Main
-},
-{
-  initialRouteName: 'Home'
-});
+const RootStack = createStackNavigator(
+  {
+    Home: Main
+  },
+  {
+    CurrentRaces
+  },
+  {
+    Settings
+  },
+  {
+    PlayerStats
+  },
+  {
+    initialRouteName: 'Home'
+  }
+);
 
 export default RootStack;
