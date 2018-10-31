@@ -9,7 +9,7 @@ const INITIAL_STATE = { games: [
   },
   {
     title: 'Final Fantasy VI: Beyond Chaos',
-    srlAbbrev: 'ff6hacks',
+    srlAbbrev: 'ff6random',
   },
   {
     title: 'A Link to the Past Randomize',
