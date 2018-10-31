@@ -11,6 +11,13 @@ const styles = StyleSheet.create({
 })
 
 class PlayerStats extends Component {
+  static navigationOptions = {
+    title: 'Player Stats',
+    headerStyle: {
+      backgroundColor: '#000099',
+    },
+    headerTintColor: '#eee'
+  }
   render() {
     const { navigation } = this.props;
     console.log('props', this.props);

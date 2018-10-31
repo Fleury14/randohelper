@@ -11,6 +11,13 @@ const styles = StyleSheet.create({
 })
 
 class CurrentRaces extends Component {
+  static navigationOptions = {
+    title: 'Current Races',
+    headerStyle: {
+      backgroundColor: '#000099',
+    },
+    headerTintColor: '#eee'
+  }
   render() {
     const { navigation } = this.props;
     console.log('props', this.props);

@@ -11,6 +11,13 @@ const styles = StyleSheet.create({
 })
 
 class Main extends Component {
+  static navigationOptions = {
+    title: 'RandoHelper',
+    headerStyle: {
+      backgroundColor: '#000099',
+    },
+    headerTintColor: '#eee'
+  }
   render() {
     console.log('props', this.props);
     return (

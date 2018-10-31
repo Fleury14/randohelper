@@ -11,6 +11,13 @@ const styles = StyleSheet.create({
 })
 
 class Settings extends Component {
+  static navigationOptions = {
+    title: 'Settings',
+    headerStyle: {
+      backgroundColor: '#000099',
+    },
+    headerTintColor: '#eee'
+  }
   render() {
     const { navigation } = this.props;
     console.log('props', this.props);
