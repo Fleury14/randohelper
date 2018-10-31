@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
-import reducers from './reducers';
+import reducers from './redux/reducers';
 import RootStack from './navigation';
 // import Router from './Router';
 // import config from './config';
