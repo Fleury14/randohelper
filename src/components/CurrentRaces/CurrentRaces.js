@@ -24,25 +24,48 @@ class CurrentRaces extends Component {
     headerTintColor: '#eee'
   }
 
-  renderGames() {
-    return this.props.games.games.map(game => {
+  state = {
+    srlData: [],
+  };
+
+  componentDidMount() {
+    this.props.games.games.map(async game => {
       const { title, srlAbbrev } = game;
-      fetch(`http://api.speedrunslive.com/races?game=${srlAbbrev}`)
+      await fetch(`http://api.speedrunslive.com/races?game=${srlAbbrev}`)
         .then(res => res.json())
         .then(data => {
           const myGame = data.races.filter(race => race.game.abbrev === srlAbbrev);
-          console.log('game', game, myGame);
-          return (
-            <View style={{ width: '100%' }} key={srlAbbrev}>
-              <Text>
-                {title}
-              </Text>
-              <Text>
-                {srlAbbrev}
-              </Text>
-            </View>
-          );
+          const gameObj = {
+            races: myGame,
+            title,
+            srlAbbrev
+          };
+          // console.log('game', game, myGame);
+          this.setState(prevState => ({
+            srlData: [...prevState.srlData, gameObj]
+          }));
         });
+    });
+  }
+
+  renderGames() {
+    console.log('state', this.state);
+    return this.state.srlData.map(game => {
+      const { title, srlAbbrev } = game;
+      return (
+        <View style={{ width: '100%' }} key={srlAbbrev}>
+          <Text>
+            {title}
+          </Text>
+          <Text>
+            {srlAbbrev}
+          </Text>
+          <Text>
+            Races:
+            {game.races.length}
+          </Text>
+        </View>
+      );
     });
   }
 
@@ -61,8 +84,8 @@ class CurrentRaces extends Component {
           navigation={navigation}
         />
       </View>
-    )
-  };
-};
+    );
+  }
+}
 
 export default connect(mapStateToProps, null)(CurrentRaces);
