@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
 import { Footer } from '../common';
 
 const styles = StyleSheet.create({
@@ -8,7 +9,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   }
-})
+});
+
+const mapStateToProps = state => ({
+  games: state.directory
+});
 
 class CurrentRaces extends Component {
   static navigationOptions = {
@@ -18,6 +23,29 @@ class CurrentRaces extends Component {
     },
     headerTintColor: '#eee'
   }
+
+  renderGames() {
+    return this.props.games.games.map(game => {
+      const { title, srlAbbrev } = game;
+      fetch(`http://api.speedrunslive.com/races?game=${srlAbbrev}`)
+        .then(res => res.json())
+        .then(data => {
+          const myGame = data.races.filter(race => race.game.abbrev === srlAbbrev);
+          console.log('game', game, myGame);
+          return (
+            <View style={{ width: '100%' }} key={srlAbbrev}>
+              <Text>
+                {title}
+              </Text>
+              <Text>
+                {srlAbbrev}
+              </Text>
+            </View>
+          );
+        });
+    });
+  }
+
   render() {
     const { navigation } = this.props;
     console.log('props', this.props);
@@ -27,13 +55,14 @@ class CurrentRaces extends Component {
           <Text>
             Current Races Screen
           </Text>
+          {this.renderGames()}
         </View>
         <Footer
-         navigation={navigation}
+          navigation={navigation}
         />
       </View>
     )
   };
 };
 
-export default CurrentRaces;
+export default connect(mapStateToProps, null)(CurrentRaces);
