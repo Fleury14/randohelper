@@ -16,11 +16,13 @@ const styles = {
 };
 
 const Footer = (props) => {
+  console.log('footer props', props);
+  const { navigation } = props;
   return (
     <View style={styles.footerContainer}>
       <View>
         <TouchableOpacity
-          onPress={() => props.navigate('Home')}
+          onPress={() => props.navigation.navigate('Home')}
         >
           <Text style={styles.footerText}>
             Home
@@ -29,7 +31,7 @@ const Footer = (props) => {
       </View>
       <View>
         <TouchableOpacity
-          onPress={() => props.navigate('PlayerStats')}
+          onPress={() => props.navigation.navigate('PlayerStats')}
         >
           <Text style={styles.footerText}>
             Player Stats
@@ -38,7 +40,7 @@ const Footer = (props) => {
       </View>
       <View>
         <TouchableOpacity
-          onPress={() => props.navigate('CurrentRaces')}
+          onPress={() => props.navigation.navigate('CurrentRaces')}
         >
           <Text style={styles.footerText}>
             Current Races
@@ -47,7 +49,7 @@ const Footer = (props) => {
       </View>
       <View>
         <TouchableOpacity
-          onPress={() => props.navigate('Settings')}
+          onPress={() => props.navigation.navigate('Settings')}
         >
           <Text style={styles.footerText}>
             Settings

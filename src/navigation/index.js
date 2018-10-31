@@ -3,16 +3,10 @@ import { Main, Settings, CurrentRaces, PlayerStats } from '../components';
 
 const RootStack = createStackNavigator(
   {
-    Home: Main
-  },
-  {
-    CurrentRaces
-  },
-  {
+    Home: Main,
+    CurrentRaces,
+    PlayerStats,
     Settings
-  },
-  {
-    PlayerStats
   },
   {
     initialRouteName: 'Home'

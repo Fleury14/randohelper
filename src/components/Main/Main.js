@@ -20,7 +20,7 @@ class Main extends Component {
             Main screen
           </Text>
         </View>
-        <Footer />
+        <Footer navigation={this.props.navigation} />
       </View>
     )
   };

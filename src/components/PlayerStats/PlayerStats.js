@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
 
 class PlayerStats extends Component {
   render() {
+    const { navigation } = this.props;
     console.log('props', this.props);
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-between' }}>
@@ -20,7 +21,9 @@ class PlayerStats extends Component {
             Current Races screen
           </Text>
         </View>
-        <Footer />
+        <Footer
+          navigation={navigation}
+        />
       </View>
     )
   };
