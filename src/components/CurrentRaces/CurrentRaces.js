@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { Footer } from '../common';
+import RaceItem from'./RaceItem';
 
 const styles = StyleSheet.create({
   bodyContainer: {
@@ -53,17 +54,11 @@ class CurrentRaces extends Component {
     return this.state.srlData.map(game => {
       const { title, srlAbbrev } = game;
       return (
-        <View style={{ width: '100%' }} key={srlAbbrev}>
-          <Text>
-            {title}
-          </Text>
-          <Text>
-            {srlAbbrev}
-          </Text>
-          <Text>
-            Races:
-            {game.races.length}
-          </Text>
+        <View style={{ alignSelf: 'stretch', justifyContent: 'center' }} key={srlAbbrev}>
+          <RaceItem
+            title={title}
+            numRaces={game.races.length}
+          />
         </View>
       );
     });
@@ -75,9 +70,6 @@ class CurrentRaces extends Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-between' }}>
         <View style={styles.bodyContainer}>
-          <Text>
-            Current Races Screen
-          </Text>
           {this.renderGames()}
         </View>
         <Footer
