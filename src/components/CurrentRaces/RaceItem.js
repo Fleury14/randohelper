@@ -3,22 +3,24 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#a1a0f9',
+    backgroundColor: '#260056',
     padding: 20,
     marginBottom: 10,
     width: '100%',
     borderWidth: 3,
-    borderColor: '#010059'
+    borderColor: '#330074'
   },
   title: {
     fontSize: 24,
     fontWeight: '700',
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#eee'
   },
   numRaces: {
     fontSize: 16,
     fontWeight: '300',
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#eee'
   }
 });
 
